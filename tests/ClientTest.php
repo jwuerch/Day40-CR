@@ -216,6 +216,30 @@
             $this->assertEquals([$updated_client_name, $updated_stylist_id], [$updated_client->getName(), $updated_client->getStylistId()]);
         }
 
+        function test_searchByName() {
+            //Arrange;
+            $stylist_name = 'Danielle';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
+            $test_client->save();
+
+            $client_name2 = 'Bill';
+            $test_client2 = new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act;
+            $search_name = 'John';
+            $result = Client::search($search_name);
+
+            //Assert;
+            $this->assertEquals($client_name, $result);
+        }
+
     }
 
 
