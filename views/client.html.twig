@@ -7,6 +7,20 @@
             <ul>
                 <li><span style="text-decoration:underline">Stylist</span>: <a href="/stylist/{{ client.getStylistId() }}">{{ stylist_name }}</a></li>
             </ul>
+            <br>
+            <h4>Update Client Information</h4>
+            <form class="" method="post">
+                <input name ="_method" type="hidden" value="patch">
+                <div class="form-group">
+                    <label for="update_client_name">Name</label>
+                    <input id="update_client_name" name="update_client_name">
+                </div>
+
+                <select class="form-control">
+                    {% for stylist in stylists %}
+                        <option value="{{ stylist.getId() }}">{{ stylist.getName }}</option>
+                    {% endfor %}
+            </form>
             {% include 'footer.html' %}
         </div>
     </body>
