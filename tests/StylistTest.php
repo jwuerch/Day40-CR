@@ -93,6 +93,19 @@
             $this->assertEquals([], $result);
         }
 
+        function test_save() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+
+            //Act;
+            $test_stylist->save();
+            $result = Stylist::getAll();
+
+            $this->assertEquals($test_stylist, $result[0]);
+        }
+
     }
 
 
