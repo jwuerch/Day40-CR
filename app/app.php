@@ -57,6 +57,11 @@
         return $app['twig']->render('clients.html.twig', array('clients' => $clients));
     });
 
+    $app->get("/client/{id}", function($id) use ($app) {
+        $client = Client::find($id);
+        return $app['twig']->render('client.html.twig', array('client' = $client));
+    });
+
     return $app;
 
  ?>
