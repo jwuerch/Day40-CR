@@ -3,25 +3,29 @@
     {% include 'header.html' %}
     <body>
         <div class="container">
-            <h3>Here are your current stylists in your database:</h3>
-            <ul>
-            {% for stylist in stylists %}
-                <li>{ stylist }</li>
-
-            {% endfor %}
-            </ul>
-            <h4>Fill out the form to add a stylist to your database:</h4>
+            <h3>Fill out the form to add a stylist to your database:</h3>
+            <br>
             <form action="/add_stylist" method="post" class="form-inline">
                 <div class="form-group">
-                    <label for="name">Stylist Name</label>
-                    <input id="name" name="name" class="form-control" type="text" placeholder="Name">
+                    <label for="stylist_name">Stylist Name</label>
+                    <input id="stylist_name" name="stylist_name" class="form-control" type="text" placeholder="Name">
                 </div>
                 <br><br>
                 <div class="form-group">
-                    <label for="location">  Stylist Location</label>
-                    <input id="location" name="location" class="form-control" type="text" placeholder="Location">
+                    <label for="stylist_location">Stylist Location</label>
+                    <input id="stylist_location" name="stylist_location" class="form-control" type="text" placeholder="Location">
                 </div>
+                <br>
+                <button class="btn btn-primary" type="submit">Add</button>
             </form>
+            <br>
+            <h4>Here are your current stylists in your database:</h4>
+            <ul>
+            {% for stylist in stylists %}
+                <li><a href="#">{{ stylist.getName }}</a></li>
+
+            {% endfor %}
+            </ul>
         </div>
     </body>
 </html>

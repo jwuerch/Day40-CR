@@ -21,9 +21,14 @@
         return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
-    // $app->post("add_stylist", function() use ($app) {
-    //     $stylist_name = $_POST
-    // });
+    $app->post("add_stylist", function() use ($app) {
+        $stylist_name = $_POST['stylist_name'];
+        $stylist_location = $_POST['stylist_location'];
+        $new_stylist = new Stylist($stylist_name, $stylist_location);
+        $new_stylist->save();
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('index.html', array('stylists' => $stylists));
+    });
 
     return $app;
 
