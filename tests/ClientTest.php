@@ -89,11 +89,11 @@
             $test_client->save();
 
             //Act;
-            $clients = Client::getAll();
-            $result = Client::deleteAll();
+            Client::deleteAll();
+            $result = Client::getAll();
 
             //Assert;
-            $this->assertEquals($clients, $result);
+            $this->assertEquals([], $result);
         }
 
     }

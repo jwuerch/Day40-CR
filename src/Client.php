@@ -30,15 +30,27 @@
         }
 
         static function deleteAll() {
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
 
         }
 
         static function getAll() {
-
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
+            foreach ($returned_clients as $client) {
+                $name = $client['name'];
+                $stylist_id = $client['stylist_id'];
+                $id = $client['id'];
+                $new_client = new Client($name, $stylist_id, $id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
         }
 
         public function save() {
-            
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()})', {$this->getStylistId()};");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+
         }
 
     }
