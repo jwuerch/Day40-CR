@@ -29,6 +29,18 @@
             return $this->id;
         }
 
+        static function deleteAll() {
+
+        }
+
+        static function getAll() {
+
+        }
+
+        public function save() {
+            
+        }
+
     }
 
 

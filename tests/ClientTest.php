@@ -57,6 +57,7 @@
         }
 
         function test_getId() {
+            //Arrange;
             $stylist_name = 'Danille';
             $stylist_location = '111 SW St';
             $test_stylist = new Stylist($stylist_name, $stylist_location);
@@ -74,7 +75,26 @@
             $this->assertEquals($id, $result);
         }
 
-        function test_save();
+        function test_deleteAll() {
+            //Arrange;
+            $stylist_name = 'Danielle';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $id = 1;
+            $test_client = new Client($client_name, $stylist_id, $id);
+            $test_client->save();
+
+            //Act;
+            $clients = Client::getAll();
+            $result = Client::deleteAll();
+
+            //Assert;
+            $this->assertEquals($clients, $result);
+        }
 
     }
 
