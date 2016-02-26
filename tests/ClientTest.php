@@ -233,11 +233,11 @@
             $test_client2->save();
 
             //Act;
-            $search_name = 'John';
+            $search_name = 'John1';
             $result = Client::search($search_name);
 
             //Assert;
-            $this->assertEquals($client_name, $result);
+            $this->assertEquals([$test_client], $result);
         }
 
     }

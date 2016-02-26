@@ -75,8 +75,17 @@
 
         }
 
-        static function search($name) {
-
+        static function search($search_name) {
+            $clients = Client::getAll();
+            $found_clients = array();
+            foreach ($clients as $client) {
+                $client_name = $client->getName();
+                similar_text($search_name, $client_name, $percentage);
+                if ($percentage > 25) {
+                    array_push($found_clients, $client);
+                }
+            }
+            return $found_clients;
         }
 
     }
