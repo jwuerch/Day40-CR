@@ -15,6 +15,18 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase {
 
+        function getName() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+
+            //Act;
+            $result = $test_stylist->getName();
+
+            //Assert;
+            $this->assertEquals($name, $result);
+        }
     }
 
 
