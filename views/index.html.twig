@@ -22,7 +22,7 @@
             <h4>Here are your current stylists in your database:</h4>
             <ul>
             {% for stylist in stylists %}
-                <li><a href="#">{{ stylist.getName }}</a></li>
+                <li><a href="/stylist/{{ stylist.getid }}">{{ stylist.getName }}</a></li>
 
             {% endfor %}
             </ul>
