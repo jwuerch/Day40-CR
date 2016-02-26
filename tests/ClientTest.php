@@ -163,6 +163,30 @@
             $this->assertEquals($test_client2, $result);
         }
 
+        function test_delete() {
+            //Arrange;
+            $stylist_name = 'Danielle';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
+            $test_client->save();
+
+            $client_name2 = 'Bill';
+            $test_client2 = new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            //Act;
+            $test_client->delete();
+            $result = Client::getAll();
+
+            //Assert;
+            $this->assertEquals([$test_client2], $result);
+        }
+
     }
 
 

@@ -64,6 +64,10 @@
             return $found_client;
         }
 
+        public function delete() {
+            
+        }
+
     }
 
 
