@@ -15,6 +15,11 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase {
 
+        protected function teardown() {
+            Stylist::deleteAll();
+            Client::deleteAll();
+        }
+
         function test_getName() {
             //Arrange;
             $stylist_name = 'Danielle';
@@ -56,7 +61,7 @@
             $stylist_location = '111 SW St';
             $test_stylist = new Stylist($stylist_name, $stylist_location);
             $test_stylist->save();
-            
+
             $client_name = 'John';
             $stylist_id = $test_stylist->getId();
             $id = 1;
@@ -68,6 +73,8 @@
             //Assert;
             $this->assertEquals($id, $result);
         }
+
+        function test_save();
 
     }
 
