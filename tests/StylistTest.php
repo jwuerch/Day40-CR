@@ -145,6 +145,23 @@
             $this->assertEquals([$test_stylist2], $result);
         }
 
+        function test_update() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+            $test_stylist->save();
+
+            //Act;
+            $new_name = 'Hydra';
+            $new_location = '111 Bye St';
+            $test_stylist->update($new_name, $new_location);
+            $result = [$test_stylist->getName(), $test_stylist->getLocation()];
+
+            //Assert;
+            $this->assertEquals([$new_name, $new_location], $result);
+        }
+
     }
 
 
