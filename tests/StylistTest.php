@@ -106,6 +106,25 @@
             $this->assertEquals($test_stylist, $result[0]);
         }
 
+        function test_find() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+            $test_stylist->save();
+
+            $name2 = 'Jasmine';
+            $location2 = '111 Hello St';
+            $test_stylist2 = new Stylist($name, $location);
+            $test_stylist2->save();
+
+            //Act;
+            $result = Stylist::find($test_stylist->getId());
+
+            //Assert;
+            $this->assertEquals($test_stylist, $result);
+        }
+
     }
 
 
