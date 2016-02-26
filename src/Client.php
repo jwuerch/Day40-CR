@@ -21,6 +21,8 @@
             return $this->name;
         }
 
+        public function getStylistId() {}
+
     }
 
 
