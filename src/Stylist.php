@@ -16,9 +16,17 @@
             $this->name = $new_name;
         }
 
+        public function setLocation() {
+            
+        }
+
         //getters;
         public function getName() {
             return $this->name;
+        }
+
+        public function getLocation() {
+
         }
 
 

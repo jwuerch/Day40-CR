@@ -27,6 +27,19 @@
             //Assert;
             $this->assertEquals($name, $result);
         }
+
+        function test_getLocation() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+
+            //Act;
+            $result = $test_stylist->getLocation();
+
+            //Assert;
+            $this->assertEquals($location, $result);
+        }
     }
 
 
