@@ -13,10 +13,11 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class ClientTest extends PHPUnit_Framework_TestCase {
+    class StylistTest extends PHPUnit_Framework_TestCase {
 
         protected function teardown() {
             Stylist::deleteAll();
+            Client::deleteAll();
         }
 
         function test_getName() {
@@ -160,6 +161,34 @@
 
             //Assert;
             $this->assertEquals([$new_name, $new_location], $result);
+        }
+
+        function test_getClients() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+            $test_stylist->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
+            $test_client->save();
+
+            $client_name2 = 'Bill';
+            $test_client2 = new Client($client_name2, $stylist_id);
+            $test_client2->save();
+
+            $client_name3 = 'Jack';
+            $stylist_id2 = 3;
+            $test_client3 = new Client($client_name3, $stylist_id2);
+            $test_client3->save();
+
+            //Act;
+            $result = $test_stylist->getClients();
+
+            //Assert;
+            $this->assertEquals([$test_client, $test_client2], $result);
         }
 
     }

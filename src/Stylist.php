@@ -77,6 +77,10 @@
             $GLOBALS['DB']->exec("UPDATE stylists SET location = {$new_location} WHERE id = {$this->getId()};");
             $this->setLocation($new_location);
         }
+
+        public function getClients() {
+            // $clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()}");
+        }
     }
 
 
