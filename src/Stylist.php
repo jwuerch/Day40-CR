@@ -16,8 +16,8 @@
             $this->name = $new_name;
         }
 
-        public function setLocation() {
-            
+        public function setLocation($new_location) {
+            $this->location = $new_location;
         }
 
         //getters;
@@ -26,7 +26,7 @@
         }
 
         public function getLocation() {
-
+            return $this->location;
         }
 
 
