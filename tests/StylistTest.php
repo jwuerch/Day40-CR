@@ -15,7 +15,7 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase {
 
-        function getName() {
+        function test_getName() {
             //Arrange;
             $name = 'Danielle';
             $location = '111 SW St';
