@@ -9,6 +9,11 @@
                     <li><a href="client/{{ client.getId }}">{{ client.getName }}</a></li>
                 {% endfor %}
             </ul>
+            <br>
+            <form action="/delete_clients" method="post">
+                <button class="btn btn-danger" type="submit">Delete All Clients</button>
+            </form>
+            <br>
 
         {% include 'footer.html' %}
         </div>
