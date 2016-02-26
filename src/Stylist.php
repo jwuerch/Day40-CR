@@ -71,8 +71,11 @@
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
         }
 
-        public function update() {
-
+        public function update($new_name, $new_location) {
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = {$new_name} WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+            $GLOBALS['DB']->exec("UPDATE stylists SET location = {$new_location} WHERE id = {$this->getId()};");
+            $this->setLocation($new_location);
         }
     }
 
