@@ -54,6 +54,19 @@
             //Assert;
             $this->assertEquals($id, $result);
         }
+
+        function test_deleteAll() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+
+            //Act;
+            $result = Stylist::deleteAll();
+
+            //Assert;
+            $this->assertEquals([], $result);
+        }
     }
 
 

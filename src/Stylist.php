@@ -32,6 +32,10 @@
         public function getId() {
             return $this->id;
         }
+
+        static function deleteAll() {
+            
+        }
     }
 
 
