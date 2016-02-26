@@ -26,7 +26,7 @@
         }
 
         public function getId() {
-            return;
+            return $this->id;
         }
 
     }
