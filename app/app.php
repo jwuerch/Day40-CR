@@ -52,6 +52,11 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $clients));
     });
 
+    $app->get("/clients", function() use ($app) {
+        $clients = Client::getAll();
+        return $app['twig']->render('clients.html.twig', array('clients' => $clients));
+    });
+
     return $app;
 
  ?>
