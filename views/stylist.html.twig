@@ -7,9 +7,10 @@
             <br>
             <br>
             <form action="/add_client" method="post" class="form-inline">
+                <input type="hidden" name="stylist_id" value="{{ stylist.getId() }}">
                 <div class="form-group">
                     <label for="client_name">Add a Client</label>
-                    <input id="client-name" name="client-name" type="text" class="form-control" placeholder="Type Client's Name">
+                    <input id="client_name" name="client_name" type="text" class="form-control" placeholder="Type Client's Name">
                 </div>
                 <button type="submit" class="btn btn-success">Add Client</button>
             </form>

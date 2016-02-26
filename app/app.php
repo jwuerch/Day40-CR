@@ -42,6 +42,16 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $clients));
     });
 
+    $app->post("/add_client", function() use ($app) {
+        $client_name = $_POST['client_name'];
+        $stylist_id = $_POST['stylist_id'];
+        $new_client = new Client($client_name, $stylist_id);
+        $new_client->save();
+        $stylist = Stylist::find($stylist_id);
+        $clients = $stylist->getClients();
+        return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $clients));
+    });
+
     return $app;
 
  ?>
