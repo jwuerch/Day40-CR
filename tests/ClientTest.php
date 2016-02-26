@@ -213,7 +213,7 @@
             $result = Client::getAll();
 
             //Assert;
-            $this->assertEquals($updated_client, $result[0]);
+            $this->assertEquals([$updated_client_name, $updated_stylist_id], [$updated_client->getName(), $updated_client->getStylistId()]);
         }
 
     }
