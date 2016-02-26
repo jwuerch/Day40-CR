@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    {% include 'header.html' %}
+    <body>
+        <div class="container">
+            <h3>Clients</h3>
+            <ul>
+                {% for client in clients %}
+                    <li><a href="clients/{{ client.getId }}">{{ client.getName }}</a></li>
+                {% endfor %}
+            </ul>
+
+        {% include 'footer.html' %}
+        </div>
+    </body>
+</html>
