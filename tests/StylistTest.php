@@ -78,20 +78,20 @@
             $this->assertEquals([$test_stylist, $test_stylist2], $result);
         }
 
-        // function test_deleteAll() {
-        //     //Arrange;
-        //     $name = 'Danielle';
-        //     $location = '111 SW St';
-        //     $test_stylist = new Stylist($name, $location);
-        //     $test_stylist->save();
-        //
-        //     //Act;
-        //     Stylist::deleteAll();
-        //     $result = Stylist::getAll();
-        //
-        //     //Assert;
-        //     $this->assertEquals([], $result);
-        // }
+        function test_deleteAll() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+            $test_stylist->save();
+
+            //Act;
+            Stylist::deleteAll();
+            $result = Stylist::getAll();
+
+            //Assert;
+            $this->assertEquals([], $result);
+        }
 
     }
 
