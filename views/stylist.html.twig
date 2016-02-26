@@ -25,6 +25,11 @@
             </ul>
             <br>
             <br>
+            <form action="/delete_stylist/{{ stylist.getId }}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger" type="submit">Delete This Stylist</button>
+            </form>
+            <br>
             {% include 'footer.html' %}
         </div>
     </body>
