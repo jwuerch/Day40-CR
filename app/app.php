@@ -59,8 +59,8 @@
 
     $app->get("/client/{id}", function($id) use ($app) {
         $client = Client::find($id);
-        $stylist_name =
-        return $app['twig']->render('client.html.twig', array('client' => $client));
+        $stylist_name = $client->getStylistName();
+        return $app['twig']->render('client.html.twig', array('client' => $client, 'stylist_name' => $stylist_name));
     });
 
     return $app;

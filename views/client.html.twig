@@ -5,7 +5,7 @@
         <div class='container'>
             <h3>{{ client.getName }}</h3>
             <ul>
-                <li>{{client.getStylistId }}</li>
+                <li><span style="text-decoration:underline">Stylist</span>: <a href="/stylist/{{ client.getStylistId() }}">{{ stylist_name }}</a></li>
             </ul>
             {% include 'footer.html' %}
         </div>
