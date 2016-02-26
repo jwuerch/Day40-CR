@@ -21,9 +21,9 @@
         return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
-    $app->post("add_stylist", function() use ($app) {
-        $stylist_name = $_POST
-    });
+    // $app->post("add_stylist", function() use ($app) {
+    //     $stylist_name = $_POST
+    // });
 
     return $app;
 

@@ -2,7 +2,7 @@
 <html>
     {% include 'header.html' %}
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <h3>Here are your current stylists in your database:</h3>
             <ul>
             {% for stylist in stylists %}
@@ -11,15 +11,15 @@
             {% endfor %}
             </ul>
             <h4>Fill out the form to add a stylist to your database:</h4>
-            <form action="/add_stylist" method="post">
+            <form action="/add_stylist" method="post" class="form-inline">
                 <div class="form-group">
                     <label for="name">Stylist Name</label>
-                    <input id="name" name="name" class="form-select" type="text">
+                    <input id="name" name="name" class="form-control" type="text" placeholder="Name">
                 </div>
-
+                <br><br>
                 <div class="form-group">
-                    <label for="location">Stylist Location</label>
-                    <input id="location" name="location" class="form-select" type="text">
+                    <label for="location">  Stylist Location</label>
+                    <input id="location" name="location" class="form-control" type="text" placeholder="Location">
                 </div>
             </form>
         </div>
