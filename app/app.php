@@ -63,7 +63,7 @@
         return $app['twig']->render('client.html.twig', array('client' => $client, 'stylist_name' => $stylist_name));
     });
 
-    $app->get("/stylists", function($) use ($app) {
+    $app->get("/stylists", function() use ($app) {
         $stylists = Stylist::getAll();
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylists));
     });

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    {% include 'header.html' %}
+    <body>
+        <div class="container">
+            <h3>Stylists</h3>
+            <ul>
+                {% for stylist in stylists %}
+                    <li><a href="stylist/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                {% endfor %}
+            </ul>
+
+
+            {% include 'footer.html' %}
+        </div>
+
+    </body>
+</html>
