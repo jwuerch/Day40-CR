@@ -80,6 +80,13 @@
         return $app['twig']->render('client.html.twig', array('client' => $client, 'stylists' => $stylists, 'stylist' => $stylist));
     });
 
+    $app->delete("/client_delete{id}", function($id) use ($app) {
+        $client = Client::find($id);
+        $clients = Client::getAll();
+        $client->delete();
+        return $app['twig']->render('clients.html.twig', array('clients' => Client::getAll()));
+    });
+
     return $app;
 
  ?>

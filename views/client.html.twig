@@ -24,6 +24,12 @@
                 </select>
                 <button class="btn btn-warning" type="submit">Update</button>
             </form>
+            <br>
+            <form method="post" action="/client_delete{{ client.getId }}">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger">Delete This Client</button>
+            </form>
+            <br>
             {% include 'footer.html' %}
         </div>
     </body>
