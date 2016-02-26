@@ -40,6 +40,20 @@
             //Assert;
             $this->assertEquals($location, $result);
         }
+
+        function test_getId() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $id = 1;
+            $test_stylist = new Stylist($name, $location, $id);
+
+            //Act;
+            $result = $test_stylist->getId();
+
+            //Assert;
+            $this->assertEquals($id, $result);
+        }
     }
 
 
