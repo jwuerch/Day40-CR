@@ -21,7 +21,9 @@
             return $this->name;
         }
 
-        public function getStylistId() {}
+        public function getStylistId() {
+            return $this->stylist_id;
+        }
 
     }
 
