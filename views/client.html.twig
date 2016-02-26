@@ -5,21 +5,24 @@
         <div class='container'>
             <h3>{{ client.getName }}</h3>
             <ul>
-                <li><span style="text-decoration:underline">Stylist</span>: <a href="/stylist/{{ client.getStylistId() }}">{{ stylist_name }}</a></li>
+                <li><span style="text-decoration:underline">Stylist</span>: <a href="/stylist/{{ client.getStylistId() }}">{{ stylist.getName }}</a></li>
             </ul>
             <br>
             <h4>Update Client Information</h4>
-            <form class="" method="post">
+            <form class="" method="post" action="/client_update/{{ client.getId }}">
                 <input name ="_method" type="hidden" value="patch">
                 <div class="form-group">
                     <label for="update_client_name">Name</label>
                     <input id="update_client_name" name="update_client_name">
                 </div>
+                <label for="update_stylist">Stylist</label>
+                <select id="update_stylist" name="update_stylist" class="form-inline">
 
-                <select class="form-control">
                     {% for stylist in stylists %}
                         <option value="{{ stylist.getId() }}">{{ stylist.getName }}</option>
                     {% endfor %}
+                </select>
+                <button class="btn btn-warning" type="submit">Update</button>
             </form>
             {% include 'footer.html' %}
         </div>

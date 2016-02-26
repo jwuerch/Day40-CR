@@ -54,18 +54,30 @@
 
     $app->get("/clients", function() use ($app) {
         $clients = Client::getAll();
-        return $app['twig']->render('clients.html.twig', array('clients' => $clients));
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('clients.html.twig', array('clients' => $clients, 'stylists' => $stylists));
     });
 
     $app->get("/client/{id}", function($id) use ($app) {
         $client = Client::find($id);
-        $stylist_name = $client->getStylistName();
-        return $app['twig']->render('client.html.twig', array('client' => $client, 'stylist_name' => $stylist_name));
+        $stylists = Stylist::getAll();
+        $stylist = Stylist::find($client->getStylistId());
+        return $app['twig']->render('client.html.twig', array('client' => $client, 'stylists' => $stylists, 'stylist' => $stylist));
     });
 
     $app->get("/stylists", function() use ($app) {
         $stylists = Stylist::getAll();
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylists));
+    });
+
+    $app->patch("/client_update/{id}", function($id) use ($app) {
+        $client = (Client::find($id));
+        $new_name = $_POST['update_client_name'];
+        $updated_stylist = $_POST['update_stylist'];
+        $client->update($new_name, $updated_stylist);
+        $new_client = $client;
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('client.html.twig', array('client' => $client, 'stylists' => $stylists, 'stylist' => $stylist));
     });
 
     return $app;
