@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    {% include 'header.html' %}
+    <body>
+        <div class='container'>
+            <h3>{{ client.getName }}</h3>
+            <ul>
+                <li>{{client.getStylistId }}</li>
+            </ul>
+            {% include 'footer.html' %}
+        </div>
+    </body>
+</html>

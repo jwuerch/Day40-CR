@@ -88,6 +88,12 @@
             return $found_clients;
         }
 
+        public function getStylistName() {
+            $stylist = Stylist::find($this->getStylistId());
+            $stylist_name = $stylist->getName();
+            return $stylist_name;
+        }
+
     }
 
 
