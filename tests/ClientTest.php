@@ -51,6 +51,24 @@
             $this->assertEquals($stylist_id, $result);
         }
 
+        function test_getId() {
+            $stylist_name = 'Danille';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+            
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $id = 1;
+            $test_client = new Client($client_name, $stylist_id, $id);
+
+            //Act;
+            $result = $test_client->getId();
+
+            //Assert;
+            $this->assertEquals($id, $result);
+        }
+
     }
 
 
