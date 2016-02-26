@@ -96,6 +96,26 @@
             $this->assertEquals([], $result);
         }
 
+        function test_save() {
+            //Arrange;
+            $stylist_name = 'Danielle';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
+
+            //Act;
+            $test_client->save();
+            $result = Client::getAll();
+
+            //Assert;
+            $this->assertEquals($test_client, $result[0]);
+
+        }
+
     }
 
 

@@ -47,8 +47,8 @@
             return $clients;
         }
 
-        public function save() {
-            $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()})', {$this->getStylistId()};");
+        function save() {
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
 
         }
