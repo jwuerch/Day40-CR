@@ -2,6 +2,15 @@
 <html>
     {% include 'header.html' %}
     <body>
+        <div class="container-fluid">
+            <h3>Here are your current stylists in your database:</h3>
+            <ul>
+            {% for stylist in stylists %}
+                <li>{ stylist }</li>
 
+            {% endfor %}
+            </ul>
+
+        </div>
     </body>
 </html>
