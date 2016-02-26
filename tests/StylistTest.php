@@ -125,6 +125,26 @@
             $this->assertEquals($test_stylist, $result);
         }
 
+        function test_delete() {
+            //Arrange;
+            $name = 'Danielle';
+            $location = '111 SW St';
+            $test_stylist = new Stylist($name, $location);
+            $test_stylist->save();
+
+            $name2 = 'Jasmine';
+            $location2 = '111 Hello St';
+            $test_stylist2 = new Stylist($name, $location);
+            $test_stylist2->save();
+
+            //Act;
+            $test_stylist->delete();
+            $result = Stylist::getAll();
+
+            //Assert;
+            $this->assertEquals([$test_stylist2], $result);
+        }
+
     }
 
 
