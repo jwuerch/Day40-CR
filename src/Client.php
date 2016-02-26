@@ -53,7 +53,15 @@
         }
 
         static function find($search_id) {
-            
+            $clients = Client::getAll();
+            $found_client = null;
+            foreach ($clients as $client) {
+                $client_id = $client->getId();
+                if ($search_id == $client_id) {
+                    $found_client = $client;
+                }
+            }
+            return $found_client;
         }
 
     }
