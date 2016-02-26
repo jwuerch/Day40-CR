@@ -15,6 +15,10 @@
 
     class ClientTest extends PHPUnit_Framework_TestCase {
 
+        protected function teardown() {
+            Stylist::deleteAll();
+        }
+
         function test_getName() {
             //Arrange;
             $name = 'Danielle';
@@ -63,7 +67,7 @@
             $test_stylist->save();
 
             $name2 = 'Jasmine';
-            $location = '111 Hello St';
+            $location2 = '111 Hello St';
             $test_stylist2 = new Stylist($name2, $location2);
             $test_stylist2->save();
 
