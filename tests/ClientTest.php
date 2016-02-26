@@ -187,6 +187,35 @@
             $this->assertEquals([$test_client2], $result);
         }
 
+        function test_update() {
+            //Arrange;
+            $stylist_name = 'Danille';
+            $stylist_location = '111 SW St';
+            $test_stylist = new Stylist($stylist_name, $stylist_location);
+            $test_stylist->save();
+
+            $stylist_name2 = 'Jasmine';
+            $stylist_location = '111 Hello St';
+            $test_stylist2 = new Stylist($stylist_name2, $stylist_location);
+            $test_stylist2->save();
+
+            $client_name = 'John';
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
+            $test_client->save();
+
+            $updated_client_name = 'Bill';
+            $updated_stylist_id = $test_stylist2->getId();
+            $updated_client = new Client($updated_client_name, $updated_stylist_id);
+
+            //Act;
+            $test_client->update($updated_client_name, $updated_stylist_id);
+            $result = Client::getAll();
+
+            //Assert;
+            $this->assertEquals($updated_client, $result[0]);
+        }
+
     }
 
 

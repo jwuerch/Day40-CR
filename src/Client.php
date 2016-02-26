@@ -68,6 +68,10 @@
             $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
         }
 
+        public function update($new_name) {
+
+        }
+
     }
 
 
